@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Payment Schema",
+  "description": "Schema for payments in the decentralized dating app",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the payment"
+    },
+    "channelId": {
+      "type": "string",
+      "description": "Identifier of the payment channel"
+    },
+    "senderId": {
+      "type": "string",
+      "description": "Identifier of the payment sender"
+    },
+    "recipientId": {
+      "type": "string",
+      "description": "Identifier of the payment recipient"
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Payment amount"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Payment currency or token type"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["tip", "subscription", "purchase", "refund", "credit", "resource"],
+      "description": "Type of payment"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "processing", "completed", "failed", "cancelled", "refunded"],
+      "description": "Current status of the payment"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the payment was created"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the payment was last updated"
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the payment was completed"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of what the payment is for"
+    },
+    "itemId": {
+      "type": "string",
+      "description": "Identifier of the item being purchased (if applicable)"
+    },
+    "itemType": {
+      "type": "string",
+      "description": "Type of item being purchased (if applicable)"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the payment",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "Identifier of the app or service processing the payment"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Session identifier for the payment"
+        },
+        "deviceInfo": {
+          "type": "object",
+          "description": "Information about the device used for payment"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes about the payment"
+        }
+      }
+    },
+    "fees": {
+      "type": "object",
+      "description": "Fee information",
+      "properties": {
+        "processingFee": {
+          "type": "number",
+          "minimum": 0
+        },
+        "platformFee": {
+          "type": "number",
+          "minimum": 0
+        },
+        "networkFee": {
+          "type": "number",
+          "minimum": 0
+        },
+        "total": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "refund": {
+      "type": "object",
+      "description": "Refund information (if applicable)",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "reason": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "processing", "completed", "failed"]
+        },
+        "refundedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "signature": {
+      "type": "string",
+      "description": "Digital signature of the payment data"
+    },
+    "nonce": {
+      "type": "string",
+      "description": "Unique nonce to prevent replay attacks"
+    }
+  },
+  "required": ["id", "senderId", "recipientId", "amount", "currency", "type", "status", "createdAt"]
+} 

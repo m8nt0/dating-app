@@ -1,90 +1,22 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+/node_modules
+/dist
+/build
+/coverage
+/logs
+/tmp
+/
+*/node_modules
+*/dist
+*/build
+*/coverage
+*/logs
+*/tmp
 
-# Dependencies
-node_modules/
-.pnpm-store/
-.npm/
-.yarn/
-.pnp.*
-
-# Build outputs
-dist/
-build/
-.next/
-out/
-coverage/
-*.tsbuildinfo
-
-# Environment and local files
-.env*
-!.env.example
-*.local
-
-# IDE and Editor files
-.idea/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-*.sublime-*
-*.swp
-*.swo
-
-# OS files
-.DS_Store
-Thumbs.db
-*.pem
-
-# Debug and Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# Testing
-coverage/
-.nyc_output/
-cypress/videos/
-cypress/screenshots/
-
-# Cache and Temporary files
-.cache/
-.temp/
-.tmp/
-*.tmp
-*.temp
-
-# Build tools
-.turbo
-.rollup.cache
-.eslintcache
-.stylelintcache
-
-# Package files
-*.tgz
-*.zip
-*.tar.gz
-
-# Runtime data
-pids/
-*.pid
-*.seed
-*.pid.lock
-
-# Upload directories
-uploads/
-public/uploads/
-storage/
-
-# Database
-*.sqlite
-*.sqlite3
-
-# PWA files
-**/public/sw.js
-**/public/workbox-*.js
-**/public/worker-*.js
-**/public/sw.js.map
-**/public/workbox-*.js.map
-**/public/worker-*.js.map
+/*/thoughts.md
+/*/node_modules
+/*/thoughts.md
+/*/notes.md
+/*/thoughts.md
+/*/notes.md
+/*/thoughts.md
+/*/notes.md

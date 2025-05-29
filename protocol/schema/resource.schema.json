@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Resource Schema",
+  "description": "Schema for resources in the decentralized dating app",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the resource"
+    },
+    "userId": {
+      "type": "string",
+      "description": "Identifier of the user who owns the resource"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["swipe", "boost", "superlike", "message", "video_call", "profile_view", "feature", "storage", "bandwidth"],
+      "description": "Type of resource"
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Amount of the resource"
+    },
+    "maxAmount": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Maximum amount of the resource allowed"
+    },
+    "period": {
+      "type": "string",
+      "enum": ["daily", "weekly", "monthly", "yearly", "total", "once"],
+      "description": "Period for which the resource allocation applies"
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["free", "basic", "premium", "vip"],
+      "description": "User tier for this resource allocation"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the resource was created"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the resource was last updated"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the resource expires"
+    },
+    "renewsAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the resource renews"
+    },
+    "usageHistory": {
+      "type": "array",
+      "description": "History of resource usage",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "amount": {
+            "type": "number",
+            "minimum": 0
+          },
+          "context": {
+            "type": "string"
+          },
+          "targetId": {
+            "type": "string"
+          }
+        },
+        "required": ["timestamp", "amount"]
+      }
+    },
+    "purchaseInfo": {
+      "type": "object",
+      "description": "Information about how the resource was purchased",
+      "properties": {
+        "paymentId": {
+          "type": "string"
+        },
+        "purchaseDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "price": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string"
+        },
+        "isRecurring": {
+          "type": "boolean"
+        }
+      }
+    },
+    "restrictions": {
+      "type": "object",
+      "description": "Restrictions on resource usage",
+      "properties": {
+        "maxPerTarget": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Maximum amount that can be used on a single target"
+        },
+        "cooldownPeriod": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Cooldown period in seconds between uses"
+        },
+        "allowedTargets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of targets where the resource can be used"
+        },
+        "geographicRestrictions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Geographic regions where the resource can be used"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the resource"
+    }
+  },
+  "required": ["id", "userId", "type", "amount", "period", "createdAt"]
+} 

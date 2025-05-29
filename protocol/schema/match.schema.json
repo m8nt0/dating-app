@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Match Schema",
+  "description": "Schema for matches in the decentralized dating app",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the match"
+    },
+    "userId1": {
+      "type": "string",
+      "description": "Identifier of the first user in the match"
+    },
+    "userId2": {
+      "type": "string",
+      "description": "Identifier of the second user in the match"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "matched", "rejected", "expired", "blocked"],
+      "description": "Current status of the match"
+    },
+    "matchType": {
+      "type": "string",
+      "enum": ["mutual", "suggested", "boosted", "event"],
+      "description": "Type of match"
+    },
+    "compatibilityScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Compatibility score between the users (0-1)"
+    },
+    "matchReasons": {
+      "type": "array",
+      "description": "Reasons why these users were matched",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user1Action": {
+      "type": "object",
+      "description": "Action taken by user 1",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["like", "superlike", "pass", "block"]
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": ["action", "timestamp"]
+    },
+    "user2Action": {
+      "type": "object",
+      "description": "Action taken by user 2",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["like", "superlike", "pass", "block"]
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": ["action", "timestamp"]
+    },
+    "conversationId": {
+      "type": "string",
+      "description": "Identifier of the conversation between matched users"
+    },
+    "matchedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the match was created"
+    },
+    "lastInteractionAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last interaction between matched users"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the match expires (if applicable)"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the match",
+      "properties": {
+        "discoveryContext": {
+          "type": "string",
+          "description": "Context in which the users were discovered"
+        },
+        "sharedInterests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sharedConnections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "matchAlgorithm": {
+          "type": "string",
+          "description": "Algorithm used for matching"
+        },
+        "matchVersion": {
+          "type": "string",
+          "description": "Version of the matching algorithm"
+        }
+      }
+    },
+    "privacySettings": {
+      "type": "object",
+      "description": "Privacy settings for this match",
+      "properties": {
+        "hideFromFriends": {
+          "type": "boolean"
+        },
+        "hideFromPublic": {
+          "type": "boolean"
+        },
+        "anonymousMode": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "required": ["id", "userId1", "userId2", "status", "matchedAt"]
+} 

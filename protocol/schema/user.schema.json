@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "User Profile Schema",
+  "description": "Schema for user profiles in the decentralized dating app",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the user"
+    },
+    "did": {
+      "type": "string",
+      "description": "Decentralized identifier for the user"
+    },
+    "publicKey": {
+      "type": "string",
+      "description": "User's public key for encryption"
+    },
+    "username": {
+      "type": "string",
+      "description": "User's chosen username",
+      "minLength": 3,
+      "maxLength": 30
+    },
+    "displayName": {
+      "type": "string",
+      "description": "User's display name",
+      "maxLength": 50
+    },
+    "bio": {
+      "type": "string",
+      "description": "User's biography or about me",
+      "maxLength": 500
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "format": "date",
+      "description": "User's date of birth"
+    },
+    "gender": {
+      "type": "string",
+      "description": "User's gender identity"
+    },
+    "location": {
+      "type": "object",
+      "description": "User's location information",
+      "properties": {
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            }
+          },
+          "required": ["latitude", "longitude"]
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        }
+      }
+    },
+    "photos": {
+      "type": "array",
+      "description": "User's profile photos",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "ipfsCid": {
+            "type": "string",
+            "description": "IPFS Content Identifier"
+          },
+          "isVerified": {
+            "type": "boolean"
+          },
+          "order": {
+            "type": "integer"
+          }
+        },
+        "required": ["id", "url"]
+      }
+    },
+    "interests": {
+      "type": "array",
+      "description": "User's interests and hobbies",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preferences": {
+      "type": "object",
+      "description": "User's dating preferences",
+      "properties": {
+        "genderPreference": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ageRange": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "integer",
+              "minimum": 18
+            },
+            "max": {
+              "type": "integer"
+            }
+          },
+          "required": ["min", "max"]
+        },
+        "distanceMax": {
+          "type": "integer",
+          "description": "Maximum distance in kilometers"
+        },
+        "relationshipType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["casual", "serious", "friendship", "marriage"]
+          }
+        }
+      }
+    },
+    "verifications": {
+      "type": "array",
+      "description": "User's verified attributes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["email", "phone", "photo", "social", "government_id"]
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "verifiedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "provider": {
+            "type": "string"
+          }
+        },
+        "required": ["type", "verified"]
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "privacySettings": {
+      "type": "object",
+      "properties": {
+        "showOnlineStatus": {
+          "type": "boolean"
+        },
+        "showLocation": {
+          "type": "boolean"
+        },
+        "locationPrecision": {
+          "type": "string",
+          "enum": ["exact", "city", "region", "country"]
+        },
+        "showLastActive": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "required": ["id", "did", "publicKey", "username", "dateOfBirth", "gender", "createdAt"]
+} 

@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Message Schema",
+  "description": "Schema for messages in the decentralized dating app",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the message"
+    },
+    "conversationId": {
+      "type": "string",
+      "description": "Identifier for the conversation this message belongs to"
+    },
+    "senderId": {
+      "type": "string",
+      "description": "Identifier of the message sender"
+    },
+    "recipientId": {
+      "type": "string",
+      "description": "Identifier of the message recipient"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["text", "image", "audio", "video", "location", "contact", "system"],
+      "description": "Type of message content"
+    },
+    "content": {
+      "type": "string",
+      "description": "Message content (may be encrypted)"
+    },
+    "encryptionType": {
+      "type": "string",
+      "enum": ["none", "e2ee", "forward-secrecy"],
+      "description": "Type of encryption used for this message"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata for the message",
+      "properties": {
+        "mediaType": {
+          "type": "string",
+          "description": "MIME type of media content"
+        },
+        "mediaDuration": {
+          "type": "number",
+          "description": "Duration of media content in seconds"
+        },
+        "mediaSize": {
+          "type": "number",
+          "description": "Size of media content in bytes"
+        },
+        "mediaWidth": {
+          "type": "number",
+          "description": "Width of media content in pixels"
+        },
+        "mediaHeight": {
+          "type": "number",
+          "description": "Height of media content in pixels"
+        },
+        "ipfsCid": {
+          "type": "string",
+          "description": "IPFS Content Identifier for media content"
+        },
+        "locationData": {
+          "type": "object",
+          "properties": {
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "replyToId": {
+      "type": "string",
+      "description": "ID of the message this is replying to"
+    },
+    "sentAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the message was sent"
+    },
+    "receivedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the message was received"
+    },
+    "readAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the message was read"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["sending", "sent", "delivered", "read", "failed"],
+      "description": "Current status of the message"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the message expires (for ephemeral messages)"
+    },
+    "reactions": {
+      "type": "array",
+      "description": "Reactions to this message",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "reaction": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": ["userId", "reaction", "createdAt"]
+      }
+    },
+    "signature": {
+      "type": "string",
+      "description": "Digital signature of the message content"
+    }
+  },
+  "required": ["id", "conversationId", "senderId", "recipientId", "type", "content", "sentAt", "status"]
+} 
