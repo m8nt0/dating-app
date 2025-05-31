@@ -1,0 +1,1 @@
+// Data privacy and consent management

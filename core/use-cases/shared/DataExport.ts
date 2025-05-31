@@ -1,0 +1,1 @@
+// GDPR-compliant data export

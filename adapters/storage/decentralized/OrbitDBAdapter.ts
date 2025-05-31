@@ -1,0 +1,1 @@
+// Decentralized OrbitDB storage adapter

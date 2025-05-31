@@ -1,0 +1,1 @@
+// Track user interaction patterns

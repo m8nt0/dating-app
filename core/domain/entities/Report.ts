@@ -1,0 +1,1 @@
+// User report entity: type, evidence, status

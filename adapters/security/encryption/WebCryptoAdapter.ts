@@ -1,0 +1,1 @@
+// WebCrypto encryption adapter

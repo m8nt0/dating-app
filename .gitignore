@@ -1,90 +1,46 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # Dependencies
 node_modules/
-.pnpm-store/
-.npm/
-.yarn/
-.pnp.*
+.pnp/
+.pnp.js
 
-# Build outputs
+# Build output
 dist/
 build/
-.next/
 out/
-coverage/
-*.tsbuildinfo
 
-# Environment and local files
-.env*
-!.env.example
-*.local
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-# IDE and Editor files
+# IDE and editor files
 .idea/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-*.sublime-*
+.vscode/
 *.swp
 *.swo
-
-# OS files
 .DS_Store
-Thumbs.db
-*.pem
 
-# Debug and Logs
-logs/
-*.log
+# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+debug.log
 
-# Testing
+# Test coverage
 coverage/
-.nyc_output/
-cypress/videos/
-cypress/screenshots/
 
-# Cache and Temporary files
-.cache/
-.temp/
-.tmp/
+# Prisma
+prisma/.env
+prisma/migrations/
+
+# Docker volumes
+docker/data/
+
+# Temporary files
 *.tmp
 *.temp
+.cache/
 
-# Build tools
-.turbo
-.rollup.cache
-.eslintcache
-.stylelintcache
-
-# Package files
-*.tgz
-*.zip
-*.tar.gz
-
-# Runtime data
-pids/
-*.pid
-*.seed
-*.pid.lock
-
-# Upload directories
-uploads/
-public/uploads/
-storage/
-
-# Database
-*.sqlite
-*.sqlite3
-
-# PWA files
-**/public/sw.js
-**/public/workbox-*.js
-**/public/worker-*.js
-**/public/sw.js.map
-**/public/workbox-*.js.map
-**/public/worker-*.js.map
+# System files
+.DS_Store
+Thumbs.db 

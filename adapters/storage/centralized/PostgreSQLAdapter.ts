@@ -1,0 +1,2 @@
+// Centralized PostgreSQL storage adapter
+

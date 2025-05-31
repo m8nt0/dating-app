@@ -1,0 +1,1 @@
+// general content entity for every mode: media, metadata, and moderation status

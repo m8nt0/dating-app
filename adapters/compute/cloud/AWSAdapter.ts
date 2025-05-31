@@ -1,0 +1,1 @@
+// AWS compute adapter

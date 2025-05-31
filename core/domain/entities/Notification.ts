@@ -1,0 +1,1 @@
+// Notification entity: type, content, delivery

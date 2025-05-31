@@ -1,0 +1,1 @@
+// Reject user functionality

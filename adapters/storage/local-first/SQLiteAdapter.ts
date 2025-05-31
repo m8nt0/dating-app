@@ -1,0 +1,1 @@
+// Local-first SQLite storage adapter

@@ -1,0 +1,1 @@
+// Skip without like/dislike functionality

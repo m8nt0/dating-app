@@ -1,0 +1,1 @@
+// Enumeration of all interaction types

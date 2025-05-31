@@ -1,0 +1,1 @@
+// Decentralized blockchain storage adapter

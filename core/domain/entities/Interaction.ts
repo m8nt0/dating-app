@@ -1,0 +1,1 @@
+// Interaction entity: type, content, timestamp

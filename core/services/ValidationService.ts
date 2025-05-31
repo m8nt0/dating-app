@@ -1,0 +1,1 @@
+// Cross-entity validation logic

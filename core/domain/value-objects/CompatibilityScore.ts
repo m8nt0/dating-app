@@ -1,0 +1,1 @@
+// Score with min/max bounds and interpretation

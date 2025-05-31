@@ -1,0 +1,1 @@
+// Centralized Elasticsearch storage adapter

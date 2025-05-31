@@ -1,0 +1,1 @@
+// Interaction started, completed, rated

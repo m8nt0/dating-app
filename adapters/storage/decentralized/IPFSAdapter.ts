@@ -1,0 +1,1 @@
+// Decentralized IPFS storage adapter

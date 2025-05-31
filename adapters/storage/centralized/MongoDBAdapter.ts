@@ -1,0 +1,1 @@
+// Centralized MongoDB storage adapter

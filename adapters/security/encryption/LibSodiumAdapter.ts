@@ -1,0 +1,1 @@
+// LibSodium encryption adapter

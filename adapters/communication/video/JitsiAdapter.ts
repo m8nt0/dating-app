@@ -1,0 +1,1 @@
+// Jitsi adapter

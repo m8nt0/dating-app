@@ -1,0 +1,1 @@
+// Analyze user interaction patterns
