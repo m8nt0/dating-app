@@ -1,0 +1,1 @@
+// Generic UI component interface
