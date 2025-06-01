@@ -1,0 +1,1 @@
+<!-- Standards and excpectaion of code written by developers -->
